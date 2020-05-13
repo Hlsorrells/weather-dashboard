@@ -25,7 +25,9 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             // Add city to search history
-            searches.push(response.name);
+            if (!searches.includes(response.name)) {
+                searches.push(response.name);
+            }
             localStorage.setItem("searches", JSON.stringify(searches));
             $("#search").val("");
             renderHistory();
@@ -33,7 +35,7 @@ $(document).ready(function () {
             // Insert data into current weather section
             var box = $("#current-weather");
             console.log(response);
-            box.append($("#city").text(response.name + " (" + Date("03-12-2015") + ")"));
+            box.append($("#city").text(response.name + " (" + moment().format('L') + ")"));
             box.append($("#temp").text("Current Temp (F): " + response.main.temp.toFixed(2)));
             box.append($("#feels-like").text("Feels Like (F): " + response.main.feels_like.toFixed(2)));
             box.append($("#humidity").text("Humidity: " + response.main.humidity + "%"));
