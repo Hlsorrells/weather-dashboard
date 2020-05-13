@@ -8,7 +8,7 @@ $(document).ready(function () {
         // Limit search history to last 5 cities
         var last5 = searches.slice(0, 4);
         for (var i = 0; i < last5.length; i++) {
-            $("#search-history").append($("<p class='city'>").text(last5[i]));
+            $("#search-history").append($("<a href='' class='city list-group-item'>").text(last5[i]));
         };
     };
 
