@@ -5,8 +5,11 @@ $(document).ready(function () {
     function renderHistory() {
         $("#search-history").empty();
 
-        for (var i = 0; i < searches.length; i++) {
-            $("#search-history").append($("<p class='city'>").text(searches[i]));
+        // Limit search history to last 5 cities
+        var last5 = searches.slice(0, 4);
+
+        for (var i = 0; i < last5.length; i++) {
+            $("#search-history").append($("<p class='city'>").text(last5[i]));
         }
     }
 
