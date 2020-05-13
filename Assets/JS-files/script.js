@@ -19,17 +19,17 @@ $(document).ready(function () {
         // Retrieve city value from input
         var city = $("#search").val().trim();
 
-        // Add city to search history
-        searches.push(city);
-        localStorage.setItem("searches", JSON.stringify(searches));
-        $("#search").val("");
-        renderHistory();
-
         // Pull current weather data from API 
         $.ajax({
             url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=c9288340a0d00c00e02bf6e9f809e872",
             method: "GET"
         }).then(function (response) {
+            // Add city to search history
+            searches.push(response.name);
+            localStorage.setItem("searches", JSON.stringify(searches));
+            $("#search").val("");
+            renderHistory();
+
             // Insert data into current weather section
             var box = $("#current-weather");
             console.log(response);
@@ -52,7 +52,7 @@ $(document).ready(function () {
             $.ajax({
                 url: "http://api.openweathermap.org/data/2.5/uvi?appid=c9288340a0d00c00e02bf6e9f809e872&lat=" + cityCoord[0] + "&lon=" + cityCoord[1],
                 method: "GET"
-            }).then(function(response) {
+            }).then(function (response) {
                 var currentEL = $("#current-weather");
                 currentEL.append($("#uv").text("UV Index: " + response.value));
             });
