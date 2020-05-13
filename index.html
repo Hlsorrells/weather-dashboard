@@ -32,7 +32,7 @@
                     <label for="search-box"><strong>Search for a City:</strong></label>
                     <br>
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
-                        id="city">
+                        id="search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
 
@@ -43,13 +43,14 @@
             </aside>
             <main class="col-8">
                 <!-- Current Weather for Search City -->
-                <row id="current-weather">
+                <row class="border" id="current-weather">
                     <!-- Retrieved data will be dumped here -->
-                    <div class="city"></div>
-                    <div class="temp"></div>
-                    <div class="humidity"></div>
-                    <div class="wind"></div>
-                    <div class="uv"></div>
+                    <h3 id="city"></h3>
+                    <p id="temp"></p>
+                    <p id="feels-like"></p>
+                    <p id="humidity"></p>
+                    <p id="wind"></p>
+                    <p id="uv"></p>
                 </row>
                 <!-- Weather Tile Header -->
                 <row>
