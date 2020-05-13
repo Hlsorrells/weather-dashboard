@@ -49,7 +49,6 @@ $(document).ready(function () {
 
         // Pull UV data for current city
         function getUVindex(cityCoord) {
-            console.log(cityCoord)
             // Call current UV data for current city
             $.ajax({
                 url: "http://api.openweathermap.org/data/2.5/uvi?appid=c9288340a0d00c00e02bf6e9f809e872&lat=" + cityCoord[0] + "&lon=" + cityCoord[1],
@@ -67,22 +66,22 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             console.log(response)
-            // Insert data into forecast weather section
-            // var box = $("#current-weather");
-            // console.log(response);
-            // box.append($("#city").text(response.name));
-            // box.append($("#temp").text(tempF));
-            // box.append($("#feels-like").text(tempLike));
-            // box.append($("#humidity").text(response.main.humidity));
-            // box.append($("#wind").text(response.wind.speed));
-            // $("#current-weather").append(box);
 
-        })
-    });
+            // Empty the historical cards if exists
+            $(".card").empty();
 
-    $(document).on("click", ".city", function () {
-        console.log($(this).text());
-    });
+            // Iterate through current date to set date title
+            for (var i = 1; i < 6; i++) {
+                var tile = $(".card");
+                var title = $("<h5 class='card-title'>")
+                tile.append((title).text(moment().add(i,"day").format('L')));
+            }
+        });
+});
 
-    renderHistory();
+$(document).on("click", ".city", function () {
+    console.log($(this).text());
+});
+
+renderHistory();
 });
