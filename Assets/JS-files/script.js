@@ -72,7 +72,7 @@ $(document).ready(function () {
             for (var i = 1; i < 6; i++) {
                 var tile = $(".card");
                 var title = $("<h5 class='card-title'>")
-                var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png")
+                var img = $("<img>").attr("src", "http://openweathermap.org/img/w/" + response.list[i].weather[0].icon + ".png").attr("style", "width: 200px");
                 var p1 = $("<p>").addClass("card-text").text("Temp: " + response.list[i].main.temp_max + " °F");
                 var p2 = $("<p>").addClass("card-text").text("Humidity: " + response.list[i].main.humidity + "%");
                 tile.append((title).text(moment().add(i, "day").format('L')), img, p1, p2);
