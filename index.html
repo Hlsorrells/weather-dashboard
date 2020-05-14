@@ -9,8 +9,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Weather Dashboard</title>
 </head>
@@ -28,7 +26,7 @@
 
         <!-- Container -->
         <div class="row">
-            <aside class="col-md-3">
+            <div class="col-md-3">
                 <!-- Search Box -->
                 <form class="form-inline">
                     <label for="search-box"><strong>Search for a City:</strong></label>
@@ -40,11 +38,13 @@
 
                 <!-- Search History List -->
                 <div id="search-history"></div>
-            </aside>
 
-            <main class="col-md-9">
+
+            </div>
+            <div class="col-md-9">
+                <div>
                 <!-- Current Weather for Search City -->
-                <row id="current-weather">
+                <row class="border" id="current-weather">
                     <!-- Retrieved data will be dumped here -->
                     <h3 id="city"></h3>
                     <p id="temp"></p>
@@ -53,28 +53,35 @@
                     <p id="wind"></p>
                     <p id="uv"></p>
                 </row>
-                <!-- Weather Tiles Section Header -->
-                <row id="forecast"></row>
-            </main>
+                <!-- Weather Tile Section Header -->
+                <row>
+                    <header><strong>5-Day Forecast:</strong></header>
+                </row>
+                <!-- Weather Tiles -->
+                <row id="weather-tiles">
+                    <div class="card"></div>
+                </row>
+                </div>
+            </div>
 
         </div>
 
     </div>
 
-        <!-- Bootstrap Links: Popper.js, then Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-        crossorigin="anonymous"></script>
-    
     <!-- jQuery Link -->
     <script src="http://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
     <!-- Moment.js Link -->
     <script src="https://unpkg.com/moment"></script>
+
+    <!-- Bootstrap Links: Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
 
     <!-- Javascript Link -->
     <script src="Assets/JS-files/script.js"></script>
