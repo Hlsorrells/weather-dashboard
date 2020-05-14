@@ -21,7 +21,7 @@ $(document).ready(function () {
 
         // Pull current weather data from API 
         $.ajax({
-            url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=c9288340a0d00c00e02bf6e9f809e872",
+            url: "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=c9288340a0d00c00e02bf6e9f809e872",
             method: "GET"
         }).then(function (response) {
             // Add city to search history
@@ -62,7 +62,7 @@ $(document).ready(function () {
 
         // Pull 5 day forecast data from API
         $.ajax({
-            url: "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=c9288340a0d00c00e02bf6e9f809e872",
+            url: "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=c9288340a0d00c00e02bf6e9f809e872",
             method: "GET"
         }).then(function (response) {
             console.log(response)
