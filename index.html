@@ -9,6 +9,8 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Weather Dashboard</title>
 </head>
@@ -38,12 +40,11 @@
 
                 <!-- Search History List -->
                 <div id="search-history"></div>
-
-
             </aside>
+
             <main class="col-md-9">
                 <!-- Current Weather for Search City -->
-                <row class="border" id="current-weather">
+                <row id="current-weather">
                     <!-- Retrieved data will be dumped here -->
                     <h3 id="city"></h3>
                     <p id="temp"></p>
@@ -52,14 +53,8 @@
                     <p id="wind"></p>
                     <p id="uv"></p>
                 </row>
-                <!-- Weather Tile Section Header -->
-                <row>
-                    <header><strong>5-Day Forecast:</strong></header>
-                </row>
-                <!-- Weather Tiles -->
-                <row id="weather-tiles">
-                    <div class="card"></div>
-                </row>
+                <!-- Weather Tiles Section Header -->
+                <row id="forecast"></row>
             </main>
 
         </div>
