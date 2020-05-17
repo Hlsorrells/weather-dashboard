@@ -68,24 +68,25 @@ $(document).ready(function () {
             console.log(response)
 
             // Empty the historical cards if exists
-            $(".card").empty();
+            $("#weather-tiles").empty();
 
             // Iterate through current date to set date title
             for (var i = 1; i < 6; i++) {
-                var tile = $(".card");
-                var title = $("<h5 class='card-title'>")
-                var img = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + ".png").attr("style" , "width: 100px;")
-                var p1 = $("<p>").addClass("card-text").text("Temp: " + response.list[i].main.temp_max + " °F");
-                var p2 = $("<p>").addClass("card-text").text("Humidity: " + response.list[i].main.humidity + "%");
+                var tile = $("<div>")
+                var tileCol = $("<div class='col-md-12'>");
+                var title = $("<h5>");
+                var img = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + ".png").attr("style", "width: 100px;")
+                var p1 = $("<p>").text("Temp: " + response.list[i].main.temp_max + " °F");
+                var p2 = $("<p>").text("Humidity: " + response.list[i].main.humidity + "%");
 
-                tile.append((title).text(moment().add(i,"day").format('L')), img, p1, p2);
+                $("#weather-tiles").append(tile.append(tileCol.append((title).text(moment().add(i, "day").format('L')), img, p1, p2)))
             }
         });
-});
+    });
 
-$(document).on("click", ".city", function () {
-    console.log($(this).text());
-});
+    $(document).on("click", ".city", function () {
+        console.log($(this).text());
+    });
 
-renderHistory();
+    renderHistory();
 });
