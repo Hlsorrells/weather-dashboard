@@ -1,6 +1,5 @@
 $(document).ready(function () {
     var searches = JSON.parse(localStorage.getItem("searches")) || [];
-    var city = "";
 
     // Retrieve previous searches from local storage
     function renderHistory() {
@@ -10,7 +9,6 @@ $(document).ready(function () {
         var last5 = searches.slice(0, 4);
         for (var i = 0; i < last5.length; i++) {
             $("#search-history").append($("<a href='' class='city list-group-item'>").text(last5[i]));
-            $("#search-history").attr("id", i)
         };
     };
 
@@ -19,26 +17,8 @@ $(document).ready(function () {
         event.preventDefault();
 
         // Retrieve city value from input
-        city = $("#search").val().trim();
+        var city = $("#search").val().trim();
 
-        // Call function to get current weather for this city
-        getWeather(city);
-
-    });
-
-    // Event listener for search history links
-    $(".list-group-item").on("click", function (event) {
-        event.preventDefault();
-
-        // Retrieve city value from search history
-        city = $(".list-group-item").text();
-
-        // Call function to get current weather for this city
-        getWeather(city);
-
-    });
-
-    function getWeather() {
         // Pull current weather data from API 
         $.ajax({
             url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=c9288340a0d00c00e02bf6e9f809e872",
@@ -88,21 +68,21 @@ $(document).ready(function () {
             console.log(response)
 
             // Empty the historical cards if exists
-            $(".card").empty();
+            $("#weather-tiles").empty();
 
             // Iterate through current date to set date title
             for (var i = 1; i < 6; i++) {
-                var tile = $(".card");
-                var title = $("<h5 class='card-title'>")
+                var tile = $("<div>")
+                var tileCol = $("<div class='col-md-12'>");
+                var title = $("<h5>");
                 var img = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + ".png").attr("style", "width: 100px;")
-                var p1 = $("<p>").addClass("card-text").text("Temp: " + response.list[i].main.temp_max + " °F");
-                var p2 = $("<p>").addClass("card-text").text("Humidity: " + response.list[i].main.humidity + "%");
+                var p1 = $("<p>").text("Temp: " + response.list[i].main.temp_max + " °F");
+                var p2 = $("<p>").text("Humidity: " + response.list[i].main.humidity + "%");
 
-                tile.append((title).text(moment().add(i, "day").format('L')), img, p1, p2);
+                $("#weather-tiles").append(tile.append(tileCol.append((title).text(moment().add(i, "day").format('L')), img, p1, p2)))
             }
         });
-
-    }
+    });
 
     $(document).on("click", ".city", function () {
         console.log($(this).text());
