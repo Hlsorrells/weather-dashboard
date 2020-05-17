@@ -73,7 +73,7 @@ $(document).ready(function () {
             // Iterate through current date to set date title
             for (var i = 1; i < 6; i++) {
                 var tile = $("<div>")
-                var tileCol = $("<div class='col-md-12'>");
+                var tileCol = $("<div class='col-md-2'>");
                 var title = $("<h5>");
                 var img = $("<img>").attr("src", "https://openweathermap.org/img/wn/" + response.list[i].weather[0].icon + ".png").attr("style", "width: 100px;")
                 var p1 = $("<p>").text("Temp: " + response.list[i].main.temp_max + " °F");
