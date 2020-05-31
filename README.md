@@ -120,6 +120,8 @@ My last API call was made to OpenWeather API's [Call 5 day/3 hour forecast data]
 
 ### Building the Forecast
 
+The forecast utilized the OpenWeather API data from the 5-day/3-hour forecast call. I was able to filter the data down to a single hour for each day which could then be rendered to the weather tile HTML. Arranging the tiles horizontally was done using Bootstrap CSS framework.
+
 ## Screenshots of Application
 
 ![Day planner header image showing date format and styling](assets/Images/day-planner-header.PNG)*Day planner header image showing date format and styling*
