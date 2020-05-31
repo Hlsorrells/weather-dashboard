@@ -20,7 +20,6 @@ A weather dashboard app that features dynamically updated HTML and CSS powered b
     * [Search History](#search-history)
     * [API Data](#api-data)
     * [Building the Forecast](#building-the-forecast)
-    * [](#)
   * [Screenshots of Application](#screenshots-of-application)
   * [Authors](#author)
 
